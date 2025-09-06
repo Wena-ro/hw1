@@ -18,6 +18,21 @@ void split(Node*& in, Node*& odds, Node*& evens)
 {
   /* Add code here */
 // WRITE YOUR CODE HERE
+  if(in == nullptr){
+    return;
+  }else if(in->value %2 != 0){
+    Node *temp = in;
+    in = in->next;
+    temp->next = odds;
+    odds = temp;
+    split(in,odds,evens);
+  }else{
+    Node *temp = in;
+    in = in->next;
+    temp->next = evens;
+    evens = temp;
+    split(in,odds,evens);
+  }
 }
 
 /* If you needed a helper function, write it here */
